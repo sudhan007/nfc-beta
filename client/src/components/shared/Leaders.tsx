@@ -134,7 +134,7 @@ export function Leaders() {
       <div className="grid grid-cols-2 gap-4 p-4">
         <div className="">
           <LeaderCard
-            name={"Mr. Christhuraian"}
+            name={"Mr. Christurajan"}
             position={"Chapter Growth Co-ordinator"}
             image={"/img/members/membership/1.png"}
           />
@@ -202,7 +202,7 @@ export function Leaders() {
 
         <div className="">
           <LeaderCard
-            name={"Mr. Thanikashala Pandian"}
+            name={"Mr. Thanikachalapandian"}
             position={"FIT"}
             image={"/img/members/lvh/3.png"}
           />

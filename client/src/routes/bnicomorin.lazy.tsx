@@ -70,7 +70,7 @@ function Index() {
             <div className="flex flex-col justify-center items-center">
               <h2 className="font-bold text-xl sm:text-2xl md:text-3xl">13+</h2>
               <h4 className="text-[#000000B0] font-normal text-sm sm:text-base md:text-lg">
-                Crore Business
+                Crores business
               </h4>
             </div>
           </div>
