@@ -264,6 +264,14 @@ const memberRouter = new Elysia({
         member.userImage = data;
         member.bannerImage = bannerData;
 
+        if (!member.website && member.companyWebsite) {
+          member.website = member.companyWebsite;
+        }
+
+        if (!member.mail && member.email) {
+          member.mail = member.email;
+        }
+
         let newPics = [];
 
         for (let i of member.pictures) {

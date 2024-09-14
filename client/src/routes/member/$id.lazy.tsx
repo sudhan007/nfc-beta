@@ -263,7 +263,7 @@ function Member() {
             Let's Connect
           </h1>
 
-          <div className="grid grid-cols-3 mt-4 mx-4 gap-4">
+          <div className="grid grid-cols-3 mt-4 mx-4 gap-4 pb-[100px]">
             {socialKeys.map((key) =>
               userData[key] ? (
                 <div
@@ -294,16 +294,15 @@ function Member() {
           </div>
           {userData?.phone && (
             <div
-              className="flex flex-col items-center mt-8 cursor-pointer  bg-[#cfcece17] rounded-lg p-4"
+              className="mt-8 fixed bottom-0 left-0 right-0"
               onClick={() => {
-                // open phone
+                window.location.href = `tel:${userData.phone}`;
               }}
             >
-              <img
-                src="/img/social/contact.png"
-                alt="contact"
-                className="mb-1 h-20"
-              />
+              <div className="bg-[#0064E1] h-16 m-8 rounded-full flex items-center justify-center gap-2">
+                <img src="/img/call.png" alt="call" className="w-7 h-7" />
+                <h2 className="text-white font-bold">Contact Me</h2>
+              </div>
             </div>
           )}
         </div>
