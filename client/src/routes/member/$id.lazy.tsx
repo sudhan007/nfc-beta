@@ -18,7 +18,8 @@ import Arasan from "@/components/assets/Arasan.png"
 import Halwa_King from "@/components/assets/Halwa_King.png"
 import Kings_Chic from "@/components/assets/Kings_Chic.png"
 import ABCD from "@/components/assets/ABCD.png"
-
+import Vison from "@/components/assets/vison.png"
+import Mission from "@/components/assets/Mission.png"
 export const Route = createLazyFileRoute("/member/$id")({
   component: () => <Member />,
   pendingComponent: () => <SkeletonLoader />,
@@ -176,42 +177,42 @@ function Member() {
       img: `${Arasan}`,
       alt:"arasan",
       position: "Managing Director",
-      location: "@Arasan bakery & Restaurant PVT LTD ",
+      location: "@Arasan bakery & Restaurant Co.,(P) Ltd ",
       Duration: "Since 1997 - 2013",
     },
     {
       img: `${Arasan}`,
       alt:"arasan",
       position: "Managing Director",
-      location: "@Arasan beedi company PVT LTD ",
+      location: "@Arasan beedi company Private Limited ",
       Duration: "Since 1997 - 2012",
     },
     {
       img: `${Arasan}`,
       alt:"arasan",
       position: "Director",
-      location: "@Arasan sweets & milk food PVT LTD",
+      location: "@Arasan sweets & milk food (P) Ltd",
       Duration: "Since 2005 - 2013",
     },
     {
       img: `${Arasan}`,
       alt:"arasan",
       position: "Director",
-      location: "@Arasan Departmental Stores PVT LTD ",
+      location: "@Arasan dipartmental store (P) Ltd",
       Duration: "Since 2009 - 2013",
     },
     {
       img: `${Arasan}`,
       alt:"arasan",
       position: "Director",
-      location: "@Arasan Fashion Designs PVT LTD ",
+      location: "@Arasan Fashion  Design  (P) Ltd",
       Duration: "Since 2005 - 2012",
     },
     {
       img:`${Arasan}`,
       alt:"arasan",
       position: "Managing Partner",
-      location: "@Arasan bakery & Restaurant PVT LTD ",
+      location: "@Arasan Tailors",
       Duration: "Since 1997 - 2011",
     },
   ]
@@ -230,7 +231,7 @@ function Member() {
       if (member.data.member.key === "leader") {
         setIsLeader(true);
       }
-      setDataLoaded(true);
+       setDataLoaded(true);
     }
 
     if (dataLoaded && userData?.pictures) {
@@ -342,23 +343,28 @@ function Member() {
         </div>
 
         {/* our services */}
-        <div className="mt-3 mx-4">
-          <h1 className="font-semibold text-[#222222BD] text-sm">
-            Our Services
-          </h1>
+       <div className="mt-3 mx-4">
+        {
+          isLeader?<></>: <h1 className="font-semibold text-[#222222BD] text-sm">
+          Our Services
+        </h1>
+        }
+         
 
           <div className="flex flex-wrap mt-4 capitalize gap-2">
             {userData?.services?.map((service: string, index: number) => (
               <Badge
                 key={index}
                 variant="outline"
-                className="rounded-full text-[#201658] bg-[#cfcece17] border-[2px] p-2 text-center border-[#C1C1C12E] border-solid flex justify-center items-center"
+                className="rounded-full font-normal text-[11px] text-[#201658] bg-[#cfcece17] border-[2px] p-2 text-center border-[#C1C1C12E] border-solid flex justify-center items-center"
               >
                 {service}
               </Badge>
             ))}
           </div>
         </div>
+        
+        
 
         {/* about */}
         <div className="mt-6 mx-4">
@@ -374,7 +380,7 @@ function Member() {
         </div>
         {
           isLeader ? <>
-            <div className="mx-4">
+            <div className="mx-[14px]">
               {/* quotes */}
               <div
                 className="text-transparent bg-clip-text mt-4"
@@ -419,9 +425,28 @@ function Member() {
                     </div>
                   </div>
                 </div>
-
+                 {/* vision and mission */}
+<div className="flex -mx-[3px] flex-col gap-[14px]  mt-[22px]">
+  <div className="border rounded-[9px] p-[12px]">
+<div className="flex gap-[8px]">
+<img src={Vison} alt="" className="h-[20px] w-[20px]" />
+<p className="text-[14px]">Vison</p>
+</div>
+<p className="text-[13px] mt-[11px] text-[#222222BD]">
+To help 1,00,000 young entrepreneurs create a process, be productive & build wealth by 2030
+</p>
+  </div>
+  <div className="border rounded-[9px] p-[12px]">
+<div className="flex gap-[8px]">
+<img src={Mission} alt="" className="h-[20px] w-[24px]" />
+<p className="text-[14px]">Mission</p>
+</div>
+<p className="text-[13px] mt-[11px] text-[#222222BD]">
+To educate, encourage & empower every young startup entrepreneur in india to achieve more.</p>
+  </div>
+</div>
                 {/* current position */}
-              <div className="mt-4">
+              <div className="mt-[22px]">
                <p className="text-[#222222BD] ">Current Positions</p>
                <div className="mt-6  border rounded-xl px-1 shadow">
                {currentPositions.map((member, index) => (
