@@ -278,9 +278,11 @@ function Member() {
                 navigate({
                   to: "/bnicomorin",
                   search: {
-                    tab: "members",
+                    tab: isLeader?"leaders":"members",
                   },
-                })
+              }
+                
+                )
               }
             />
           </div>
