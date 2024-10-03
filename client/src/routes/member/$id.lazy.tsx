@@ -1,3 +1,18 @@
+import ABCD from "@/components/assets/ABCD.png";
+import action_coach from "@/components/assets/action_coach.png";
+import Arasan from "@/components/assets/Arasan.png";
+import BNI from "@/components/assets/BNI.png";
+import faith from "@/components/assets/faith.png";
+import Halwa_King from "@/components/assets/Halwa_King.png";
+import happiness from "@/components/assets/happiness 1.png";
+import heart from "@/components/assets/heart 1.png";
+import hug from "@/components/assets/hug.png";
+import janseva from "@/components/assets/janseva.png";
+import Kings_Chic from "@/components/assets/Kings_Chic.png";
+import leadership from "@/components/assets/leadership.png";
+import Mission from "@/components/assets/Mission.png";
+import Time from "@/components/assets/Time.png";
+import Vison from "@/components/assets/vison.png";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { axios } from "@/lib/axios";
@@ -5,21 +20,6 @@ import { useQuery } from "@tanstack/react-query";
 import { createLazyFileRoute, useNavigate } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import leadership from "@/components/assets/leadership.png"
-import hug from "@/components/assets/hug.png"
-import heart from "@/components/assets/heart 1.png"
-import happiness from "@/components/assets/happiness 1.png"
-import faith from "@/components/assets/faith.png"
-import BNI from "@/components/assets/BNI.png"
-import action_coach from "@/components/assets/action_coach.png"
-import janseva from "@/components/assets/janseva.png"
-import Time from "@/components/assets/Time.png"
-import Arasan from "@/components/assets/Arasan.png"
-import Halwa_King from "@/components/assets/Halwa_King.png"
-import Kings_Chic from "@/components/assets/Kings_Chic.png"
-import ABCD from "@/components/assets/ABCD.png"
-import Vison from "@/components/assets/vison.png"
-import Mission from "@/components/assets/Mission.png"
 export const Route = createLazyFileRoute("/member/$id")({
   component: () => <Member />,
   pendingComponent: () => <SkeletonLoader />,
@@ -87,7 +87,7 @@ function Member() {
   const [userData, setUserData] = useState<any>({});
   const [imagesLoaded, setImagesLoaded] = useState<boolean>(false);
   const [dataLoaded, setDataLoaded] = useState<boolean>(false);
-  const [isLeader, setIsLeader] = useState<boolean>(false)
+  const [isLeader, setIsLeader] = useState<boolean>(false);
   const { data: member, isLoading: dataLoading } = useQuery({
     queryKey: ["member", id],
     queryFn: async () => {
@@ -106,7 +106,13 @@ function Member() {
     whatsapp: { icon: "/img/social/whatsapp.png", label: "WhatsApp" },
   };
 
-  const currentPositions: Array<{ img: any; alt: string, position: string; location: string; website: string }> = [
+  const currentPositions: Array<{
+    img: any;
+    alt: string;
+    position: string;
+    location: string;
+    website: string;
+  }> = [
     {
       img: `${BNI}`,
       alt: "BNI",
@@ -131,7 +137,7 @@ function Member() {
     {
       img: `${janseva}`,
       alt: "Janseva",
-      position: "DeputyManagingDirector (HR&Marketing)",
+      position: "Deputy Managing Director (HR & Marketing)",
       location: "@JansevaCooperative CreditSociety,India",
       website: "www.janseva.in",
     },
@@ -170,9 +176,14 @@ function Member() {
       location: "@Arasan building & construction development",
       website: "www.arasanconstruction.com",
     },
-
   ];
-  const previousPositions: Array<{ img: string; alt: string, position: string; location: string; Duration: string }> = [
+  const previousPositions: Array<{
+    img: string;
+    alt: string;
+    position: string;
+    location: string;
+    Duration: string;
+  }> = [
     {
       img: `${Arasan}`,
       alt: "arasan",
@@ -215,9 +226,11 @@ function Member() {
       location: "@Arasan Tailors",
       Duration: "Since 1997 - 2011",
     },
-  ]
+  ];
 
-  const displayedPositions = showAll ? previousPositions : previousPositions.slice(0, 3);
+  const displayedPositions = showAll
+    ? previousPositions
+    : previousPositions.slice(0, 3);
 
   const socialKeys = Object.keys(socialIcons);
 
@@ -280,9 +293,7 @@ function Member() {
                   search: {
                     tab: isLeader ? "leaders" : "members",
                   },
-                }
-
-                )
+                })
               }
             />
           </div>
@@ -312,7 +323,7 @@ function Member() {
                 // whatsapp
                 window.open(
                   "https://api.whatsapp.com/send?text=" +
-                  encodeURIComponent(url),
+                    encodeURIComponent(url),
                   "_blank"
                 );
               }}
@@ -346,17 +357,19 @@ function Member() {
 
         {/* our services */}
         <div className="mt-3 mx-4">
-          {
-            isLeader ? <></> : <h1 className="font-semibold text-[#222222BD] text-sm">
+          {isLeader ? (
+            <></>
+          ) : (
+            <h1 className="font-semibold text-[#222222BD] text-sm">
               Our Services
             </h1>
-          }
+          )}
           <div className="flex flex-wrap mt-4 capitalize gap-2">
             {userData?.services?.map((service: string, index: number) => (
               <Badge
                 key={index}
                 variant="outline"
-                style={{ boxShadow: '0px 0px 2px 0px #00000040' }}
+                style={{ boxShadow: "0px 0px 2px 0px #00000040" }}
                 className="rounded-full font-normal text-[11px] text-[#201658] bg-[#cfcece17] border-none  p-2 text-center border-[#C1C1C12E]  flex justify-center items-center"
               >
                 {service}
@@ -365,8 +378,6 @@ function Member() {
           </div>
         </div>
 
-
-
         {/* about */}
         <div className="mt-6 mx-4">
           <h1 className="font-semibold text-[#222222BD] text-sm">
@@ -374,68 +385,96 @@ function Member() {
           </h1>
 
           <div className="mt-4">
-            {
-              isLeader ?
-                <p className="text-[#222222BD] font-[400px] text-[13px] leading-[24px]  flex flex-col gap-[11px] text-justify ">
-                  <span>
-                    I am Mohamed Riaz, an Executive Director, ActionCOACH Business Coach, and serial entrepreneur with over two decades of leadership experience. Throughout my career, I have successfully led multiple ventures, managing businesses across industries such as retail, hospitality, and construction.
-                  </span>
-                  <span>My roles as Executive Director at BNI Tirunelveli, Nagercoil, and Tuticorin, along with my strategic leadership at King's Retail Ventures and Arasan Supermarket, highlight my commitment to fostering business growth and community engagement.</span>
-                  <span>
-                    My passion for business coaching has led me to help entrepreneurs maximize their potential through actionable strategies that drive growth and productivity.
-                  </span>
-                </p>
-                :
-                <p className="text-[#222222BD] font-[400px] text-[13px] leading-[24px] text-justify">
-                  {userData?.about}
-                </p>
-            }
-
+            {isLeader ? (
+              <p className="text-[#222222BD] font-[400px] text-[13px] leading-[24px]  flex flex-col gap-[11px] text-justify ">
+                <span>
+                  I am Mohamed Riaz, an Executive Director, ActionCOACH Business
+                  Coach, and serial entrepreneur with over two decades of
+                  leadership experience. Throughout my career, I have
+                  successfully led multiple ventures, managing businesses across
+                  industries such as retail, hospitality, and construction.
+                </span>
+                <span>
+                  My roles as Executive Director at BNI Tirunelveli, Nagercoil,
+                  and Tuticorin, along with my strategic leadership at King's
+                  Retail Ventures and Arasan Supermarket, highlight my
+                  commitment to fostering business growth and community
+                  engagement.
+                </span>
+                <span>
+                  My passion for business coaching has led me to help
+                  entrepreneurs maximize their potential through actionable
+                  strategies that drive growth and productivity.
+                </span>
+              </p>
+            ) : (
+              <p className="text-[#222222BD] font-[400px] text-[13px] leading-[24px] text-justify">
+                {userData?.about}
+              </p>
+            )}
           </div>
         </div>
-        {
-          isLeader ? <>
+        {isLeader ? (
+          <>
             <div className="mx-[14px]">
               {/* quotes */}
               <div
                 className="text-transparent bg-clip-text mt-4"
                 style={{
-                  backgroundImage: 'linear-gradient(270deg, #0064E1 66.67%, #26B7FF 126.47%)',
+                  backgroundImage:
+                    "linear-gradient(270deg, #0064E1 66.67%, #26B7FF 126.47%)",
                 }}
               >
-                <p >
-                  <span className="text-[15px] font-bold ">
-                    “
-                  </span>
+                <p>
+                  <span className="text-[15px] font-bold ">“</span>
                   <span className="text-[13px]">
-                    To educate, encourage & empower every young startup entrepreneur in india to achieve more
+                    To educate, encourage & empower every young startup
+                    entrepreneur in india to achieve more
                   </span>
-                  <span className="text-[15px] font-bold ">
-                    ”
-                  </span>
+                  <span className="text-[15px] font-bold ">”</span>
                 </p>
               </div>
 
               <div className="mt-4">
                 <div className="grid grid-cols-3 gap-[12px]">
                   <div className="flex gap-[9px] items-center">
-                    <img className="w-[18px] h-[18px]" src={leadership} alt="leadership" />
+                    <img
+                      className="w-[18px] h-[18px]"
+                      src={leadership}
+                      alt="leadership"
+                    />
                     <p className="text-[#373737BD] text-[13px]">Leadership</p>
                   </div>
                   <div className="flex gap-[9px] items-center">
-                    <img className="w-[18px] h-[18px]" src={hug} alt="compassion" />
+                    <img
+                      className="w-[18px] h-[18px]"
+                      src={hug}
+                      alt="compassion"
+                    />
                     <p className="text-[#373737BD] text-[13px]">Compassion</p>
                   </div>
                   <div className="flex gap-[9px] items-center">
-                    <img className="w-[18px] h-[18px] " src={happiness} alt="Optimism" />
+                    <img
+                      className="w-[18px] h-[18px] "
+                      src={happiness}
+                      alt="Optimism"
+                    />
                     <p className="text-[#373737BD] text-[13px]">Optimism</p>
                   </div>
                   <div className="flex gap-[9px] items-center">
-                    <img className="w-[18px] h-[18px]" src={heart} alt="honesty" />
+                    <img
+                      className="w-[18px] h-[18px]"
+                      src={heart}
+                      alt="honesty"
+                    />
                     <p className="text-[#373737BD] text-[13px]">Honesty</p>
                   </div>
                   <div className="flex gap-[9px] items-center">
-                    <img className="w-[18px] h-[18px]" src={faith} alt="Faith" />
+                    <img
+                      className="w-[18px] h-[18px]"
+                      src={faith}
+                      alt="Faith"
+                    />
                     <p className="text-[#373737BD] text-[13px]">Faith</p>
                   </div>
                 </div>
@@ -448,7 +487,8 @@ function Member() {
                     <p className="text-[14px]">Vison</p>
                   </div>
                   <p className="text-[13px] mt-[11px] text-[#222222BD]">
-                    To help 1,00,000 young entrepreneurs create a process, be productive & build wealth by 2030
+                    To help 1,00,000 young entrepreneurs create a process, be
+                    productive & build wealth by 2030
                   </p>
                 </div>
                 <div className="border rounded-[9px] p-[12px]">
@@ -457,90 +497,107 @@ function Member() {
                     <p className="text-[14px]">Mission</p>
                   </div>
                   <p className="text-[13px] mt-[11px] text-[#222222BD]">
-                    To educate, encourage & empower every young startup entrepreneur in india to achieve more.</p>
+                    To educate, encourage & empower every young startup
+                    entrepreneur in india to achieve more.
+                  </p>
                 </div>
               </div>
               {/* current position */}
               <div className="mt-[22px]">
-  <p className="text-[#222222BD]">Current Positions</p>
-  <div    style={{ boxShadow: '0px 0px 2px 0px #00000040' }} className="mt-6 rounded-xl px-1">
-    {currentPositions.map((member, index) => (
-      <div
-        key={index}
-        className={`py-4 gap-[10px] flex ${index === currentPositions.length - 1 ? '' : 'border-b'}`}
-      >
-        <div>
-          <img
-            src={member.img}
-            alt={member.alt}
-            className="w-[40px] ml-[11px] text-xs h-[40px] object-cover rounded-md"
-          />
-        </div>
-        <div>
-          <h2 className="text-[14px] text-[#222222ED]">{member.position}</h2>
-          <p className="text-blue-500 text-[13px]">{member.location}</p>
-          <p className="text-[12px] text-[#222222BD]">{member.website}</p>
-        </div>
-      </div>
-    ))}
-  </div>
-</div>
-
+                <p className="text-[#222222BD]">Current Positions</p>
+                <div
+                  style={{ boxShadow: "0px 0px 2px 0px #00000040" }}
+                  className="mt-6 rounded-xl px-1"
+                >
+                  {currentPositions.map((member, index) => (
+                    <div
+                      key={index}
+                      className={`py-4 gap-[10px] flex ${index === currentPositions.length - 1 ? "" : "border-b"}`}
+                    >
+                      <div>
+                        <img
+                          src={member.img}
+                          alt={member.alt}
+                          className="w-[40px] ml-[11px] text-xs h-[40px] object-cover rounded-md"
+                        />
+                      </div>
+                      <div>
+                        <h2 className="text-[14px] text-[#222222ED]">
+                          {member.position}
+                        </h2>
+                        <p className="text-blue-500 text-[13px]">
+                          {member.location}
+                        </p>
+                        <p className="text-[12px] text-[#222222BD]">
+                          {member.website}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
 
               {/* previous position */}
               <div className="mt-4">
-  <div className="flex justify-between items-center">
-    <p className="text-[#222222BD]">Previous Positions</p>
-    <p
-      className="text-[#0064E1] cursor-pointer"
-      onClick={() => setShowAll(!showAll)}
-    >
-      {showAll ? "View Less" : "View All"}
-    </p>
-  </div>
+                <div className="flex justify-between items-center">
+                  <p className="text-[#222222BD]">Previous Positions</p>
+                  <p
+                    className="text-[#0064E1] cursor-pointer"
+                    onClick={() => setShowAll(!showAll)}
+                  >
+                    {showAll ? "View Less" : "View All"}
+                  </p>
+                </div>
 
-  <div className="mt-6 rounded-xl px-1 "   style={{ boxShadow: '0px 0px 2px 0px #00000040' }}>
-    {displayedPositions.map((member, index) => (
-      <div
-        key={index}
-        className={`py-4 flex ${index === displayedPositions.length - 1 ? '' : 'border-b'}`}
-      >
-        <div>
-          <img
-            src={member.img}
-            alt={member.alt}
-            className="text-xs ml-[11px] h-[40px] w-[40px] object-cover rounded-md mb-4"
-          />
-        </div>
-        <div className="ml-4">
-          <h2 className="text-[14px] text-[#222222ED]">{member.position}</h2>
-          <p className="text-blue-500 text-[13px]">{member.location}</p>
-          <p className="text-[12px] text-[#222222BD]">{member.Duration}</p>
-        </div>
-      </div>
-    ))}
-  </div>
-</div>
-
-
-            </div>
-          </> :
-            <>
-              {userData && userData?.pictures?.length > 0 && (
-                <div className="grid grid-cols-2 mt-6 mx-4 gap-4">
-                  {userData?.pictures?.map((picture: string, index: number) => (
-                    <img
-                      src={picture}
-                      alt="image"
-                      className="w-full h-[160px] rounded-lg object-cover"
+                <div
+                  className="mt-6 rounded-xl px-1 "
+                  style={{ boxShadow: "0px 0px 2px 0px #00000040" }}
+                >
+                  {displayedPositions.map((member, index) => (
+                    <div
                       key={index}
-                    />
+                      className={`py-4 flex ${index === displayedPositions.length - 1 ? "" : "border-b"}`}
+                    >
+                      <div>
+                        <img
+                          src={member.img}
+                          alt={member.alt}
+                          className="text-xs ml-[11px] h-[40px] w-[40px] object-cover rounded-md mb-4"
+                        />
+                      </div>
+                      <div className="ml-4">
+                        <h2 className="text-[14px] text-[#222222ED]">
+                          {member.position}
+                        </h2>
+                        <p className="text-blue-500 text-[13px]">
+                          {member.location}
+                        </p>
+                        <p className="text-[12px] text-[#222222BD]">
+                          {member.Duration}
+                        </p>
+                      </div>
+                    </div>
                   ))}
                 </div>
-              )}
-            </>
-        }
-
+              </div>
+            </div>
+          </>
+        ) : (
+          <>
+            {userData && userData?.pictures?.length > 0 && (
+              <div className="grid grid-cols-2 mt-6 mx-4 gap-4">
+                {userData?.pictures?.map((picture: string, index: number) => (
+                  <img
+                    src={picture}
+                    alt="image"
+                    className="w-full h-[160px] rounded-lg object-cover"
+                    key={index}
+                  />
+                ))}
+              </div>
+            )}
+          </>
+        )}
 
         <div className="mt-[22px] mx-[16px] mb-10 ">
           <h1 className="font-medium text-[#222222BD] text-sm">
@@ -589,8 +646,6 @@ function Member() {
                   <h2 className="text-white font-bold">Contact Me</h2>
                 </div>
               </div>
-
-
             </div>
           )}
         </div>
