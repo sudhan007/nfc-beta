@@ -351,14 +351,13 @@ function Member() {
               Our Services
             </h1>
           }
-
-
           <div className="flex flex-wrap mt-4 capitalize gap-2">
             {userData?.services?.map((service: string, index: number) => (
               <Badge
                 key={index}
                 variant="outline"
-                className="rounded-full font-normal text-[11px] text-[#201658] bg-[#cfcece17] border-[2px] p-2 text-center border-[#C1C1C12E] border-solid flex justify-center items-center"
+                style={{ boxShadow: '0px 0px 2px 0px #00000040' }}
+                className="rounded-full font-normal text-[11px] text-[#201658] bg-[#cfcece17] border-none  p-2 text-center border-[#C1C1C12E]  flex justify-center items-center"
               >
                 {service}
               </Badge>
@@ -463,66 +462,66 @@ function Member() {
               </div>
               {/* current position */}
               <div className="mt-[22px]">
-                <p className="text-[#222222BD] ">Current Positions</p>
-                <div className="mt-6  border rounded-xl px-1 shadow">
-                  {currentPositions.map((member, index) => (
-                    <div key={index} className=" border-b py-4 gap-[10px] flex">
-                      <div className="">
-                        <img
-                          src={member.img}
-                          alt={member.alt}
-                          className="w-[40px] ml-[11px]  text-xs  h-[40px]   object-cover rounded-md "
-                        />
-                      </div>
-                      <div className="">
-                        <h2 className="text-[14px] text-[#222222ED] ">{member.position}</h2>
+  <p className="text-[#222222BD]">Current Positions</p>
+  <div    style={{ boxShadow: '0px 0px 2px 0px #00000040' }} className="mt-6 rounded-xl px-1">
+    {currentPositions.map((member, index) => (
+      <div
+        key={index}
+        className={`py-4 gap-[10px] flex ${index === currentPositions.length - 1 ? '' : 'border-b'}`}
+      >
+        <div>
+          <img
+            src={member.img}
+            alt={member.alt}
+            className="w-[40px] ml-[11px] text-xs h-[40px] object-cover rounded-md"
+          />
+        </div>
+        <div>
+          <h2 className="text-[14px] text-[#222222ED]">{member.position}</h2>
+          <p className="text-blue-500 text-[13px]">{member.location}</p>
+          <p className="text-[12px] text-[#222222BD]">{member.website}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
 
-                        <p className="text-blue-500 text-[13px]">{member.location}</p>
-                        <p className="text-[12px] text-[#222222BD]">
-                          {member.website}
-                        </p>
-                      </div>
-
-
-                    </div>
-                  ))}
-                </div>
-                <div>
-
-                </div>
-              </div>
 
               {/* previous position */}
               <div className="mt-4">
-                <div className="flex justify-between items-center">
-                  <p className="text-[#222222BD] ">Previous Positions</p>
-                  <p
-                    className="text-[#0064E1] cursor-pointer"
-                    onClick={() => setShowAll(!showAll)}
-                  >
-                    {showAll ? "View Less" : "View All"}
-                  </p>
-                </div>
+  <div className="flex justify-between items-center">
+    <p className="text-[#222222BD]">Previous Positions</p>
+    <p
+      className="text-[#0064E1] cursor-pointer"
+      onClick={() => setShowAll(!showAll)}
+    >
+      {showAll ? "View Less" : "View All"}
+    </p>
+  </div>
 
-                <div className="mt-6 border rounded-xl px-1 shadow">
-                  {displayedPositions.map((member, index) => (
-                    <div key={index} className="border-b py-4 flex">
-                      <div className="">
-                        <img
-                          src={member.img}
-                          alt={member.alt}
-                          className="text-xs ml-[11px] h-[40px] w-[40px] object-cover rounded-md mb-4"
-                        />
-                      </div>
-                      <div className="ml-4">
-                        <h2 className="text-[14px] text-[#222222ED]">{member.position}</h2>
-                        <p className="text-blue-500 text-[13px]">{member.location}</p>
-                        <p className="text-[12px] text-[#222222BD]">{member.Duration}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+  <div className="mt-6 rounded-xl px-1 "   style={{ boxShadow: '0px 0px 2px 0px #00000040' }}>
+    {displayedPositions.map((member, index) => (
+      <div
+        key={index}
+        className={`py-4 flex ${index === displayedPositions.length - 1 ? '' : 'border-b'}`}
+      >
+        <div>
+          <img
+            src={member.img}
+            alt={member.alt}
+            className="text-xs ml-[11px] h-[40px] w-[40px] object-cover rounded-md mb-4"
+          />
+        </div>
+        <div className="ml-4">
+          <h2 className="text-[14px] text-[#222222ED]">{member.position}</h2>
+          <p className="text-blue-500 text-[13px]">{member.location}</p>
+          <p className="text-[12px] text-[#222222BD]">{member.Duration}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
 
             </div>
           </> :
@@ -543,12 +542,12 @@ function Member() {
         }
 
 
-        <div className="mt-8 mx-4 mb-10">
+        <div className="mt-[22px] mx-[16px] mb-10 ">
           <h1 className="font-medium text-[#222222BD] text-sm">
             Let's Connect
           </h1>
 
-          <div className="grid grid-cols-3 mt-4 mx-4 gap-4 pb-[100px]">
+          <div className="grid grid-cols-3 mt-[22px]  gap-4 pb-[100px]">
             {socialKeys.map((key) =>
               userData[key] ? (
                 <div
