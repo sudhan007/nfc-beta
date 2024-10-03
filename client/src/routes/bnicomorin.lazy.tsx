@@ -52,7 +52,7 @@ function Index() {
 
           <div className="flex gap-[1rem] p-2 sm:p-4 justify-end">
             <div className="flex flex-col justify-center items-center">
-              <h2 className="font-bold text-xl sm:text-2xl md:text-3xl">44</h2>
+              <h2 className="font-bold text-xl sm:text-2xl md:text-3xl">47</h2>
               <h4 className="text-[#000000B0] font-normal text-sm sm:text-base md:text-lg">
                 Members
               </h4>

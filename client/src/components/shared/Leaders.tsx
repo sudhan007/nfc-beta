@@ -337,8 +337,8 @@ console.log(data)
           window.open(`https://api.whatsapp.com/send?phone=${phone}`, "_blank");
         }}
       >
-        <p className="text-sm text-[#4E4E4E9C]">Powered by</p>
-        <img src="/img/logo.png" className="h-4" />
+        <p className="text-sm text-[#4E4E4E9C]">Powered by <span className="text-[#4e4e4eca]"> Wenoxo Technologies</span></p>
+        {/* <img src="/img/logo.png" className="h-4" /> */}
       </div>
     </motion.div>
   );
