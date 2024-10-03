@@ -22,6 +22,10 @@ const MemberSchema = new Schema(
     whatsapp: String,
     website: String,
     slug: String,
+    key:{type:String,
+      enum:["member","leader"],
+      default:"member",
+    },
   },
   {
     timestamps: true,

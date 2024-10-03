@@ -3,7 +3,7 @@ import { connect } from "mongoose";
 async function connectToDb() {
   try {
     const conn = await connect(
-      "mongodb://root:rootPasswordSmauG@15.207.254.223/?authSource=admin",
+      "mongodb://root:rootPasswordSmauG@13.235.75.104/?authSource=admin",
       {
         dbName: "nfc",
       }

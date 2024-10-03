@@ -143,7 +143,7 @@ const memberRouter = new Elysia({
     async ({ set }) => {
       try {
         const members = await Member.find(
-          {},
+          { $and: [ { key: { $exists: false } }, { key: { $ne: "leader" } } ] },
           "username position companyName userImage slug"
         );
 
@@ -160,6 +160,39 @@ const memberRouter = new Elysia({
         return {
           msg: "Members retrieved successfully",
           members: newMembers,
+        };
+      } catch (error) {
+        set.status = 500;
+        console.error(error);
+        return {
+          msg: "Error retrieving members",
+        };
+      }
+    },
+    {}
+  )
+  .get(
+    "/getleader",
+    async ({ set }) => {
+      try {
+        const leader = await Member.find(
+          { key: "leader" }, 
+          "username position companyName userImage slug"
+        );
+
+        let newleaders = [];
+
+        for (let i of leader) {
+          const { data } = await deliverFile(i.userImage);
+          // @ts-ignore
+          newleaders.push({ ...i._doc, userImage: data });
+        }
+
+        set.status = 200;
+
+        return {
+          msg: "Leader retrieved successfully",
+          leaders: newleaders,
         };
       } catch (error) {
         set.status = 500;
@@ -313,10 +346,10 @@ const memberRouter = new Elysia({
         let _limit = limit || 8;
         let _page = page || 1;
 
-        const members = await Member.find({})
-          .skip((_page - 1) * _limit)
-          .limit(_limit)
-          .exec();
+        const members = await Member.find({  })
+        .skip((_page - 1) * _limit)
+        .limit(_limit)
+        .exec();
 
         const total = await Member.countDocuments();
 

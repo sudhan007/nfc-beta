@@ -2,7 +2,9 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Skeleton } from "../ui/skeleton";
 import { LeaderCard } from "./LeaderCard";
-
+import { useNavigate } from "@tanstack/react-router";
+import { axios } from "@/lib/axios";
+import { useQuery } from "@tanstack/react-query";
 function SkeletonLoader() {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
@@ -41,6 +43,7 @@ function SkeletonLoader() {
 }
 
 export function Leaders() {
+  const navigate = useNavigate();
   const [imagesLoaded, setImagesLoaded] = useState(false);
   const [allImages] = useState<string[]>([
     "/img/img.png",
@@ -61,7 +64,20 @@ export function Leaders() {
     Promise.all(imagePromises).then(() => setImagesLoaded(true));
   }, [allImages]);
 
-  if (!imagesLoaded) {
+  const { data, isLoading } = useQuery({
+    queryKey: ["leaders"],
+    queryFn: async () => {
+      return await axios.get("/members/getleader");
+    },
+    refetchOnWindowFocus: false,
+    refetchOnMount: false,
+    refetchOnReconnect: false,
+    refetchInterval: false,
+    
+  });
+console.log(data)
+
+  if (!imagesLoaded||isLoading) {
     return <SkeletonLoader />;
   }
 
@@ -72,13 +88,22 @@ export function Leaders() {
       </h1>
 
       <div className="grid grid-cols-2 gap-4 p-4">
-        <div className="col-span-2 flex justify-center items-center">
-          <LeaderCard
-            name={"Mohamed Riaz"}
-            position={"Executive Director"}
-            image={"/img/members/regional/leader1.png"}
-          />
-        </div>
+  
+      <div  onClick={() => {
+        navigate({
+          to: "/member/" + data?.data.leaders[0].slug,
+        });
+      }} 
+      className="col-span-2 flex justify-center items-center">
+  <LeaderCard
+    name={"Mohamed Riaz"}
+    position={"Executive Director"}
+    image={"/img/members/regional/leader1.png"}
+  />
+</div>
+   
+       
+
 
         <div className="">
           <LeaderCard
