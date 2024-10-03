@@ -109,108 +109,108 @@ function Member() {
   const currentPositions: Array<{ img: any; alt: string, position: string; location: string; website: string }> = [
     {
       img: `${BNI}`,
-      alt:"BNI",
+      alt: "BNI",
       position: "Executive Director",
       location: "@BNI tirunelveli",
       website: "www.bni-tirunelveli.in",
     },
     {
       img: `${BNI}`,
-      alt:"BNI",
+      alt: "BNI",
       position: "Executive Director",
       location: "@BNI nagercoil & tuticorin",
       website: "www.bni-nagercoiltirunelveli.in",
     },
     {
       img: `${action_coach}`,
-      alt:"ActionCOACH",
+      alt: "ActionCOACH",
       position: "ActionCOACH",
       location: "@Buisness coach",
       website: "www.actioncoach.com",
     },
     {
-      img:  `${janseva}`,
-      alt:"Janseva",
+      img: `${janseva}`,
+      alt: "Janseva",
       position: "DeputyManagingDirector (HR&Marketing)",
       location: "@JansevaCooperative CreditSociety,India",
       website: "www.janseva.in",
     },
     {
       img: `${Time}`,
-      alt:"Time school",
+      alt: "Time school",
       position: "Correspondent",
       location: "@Time school",
       website: "www.timeschool.org",
     },
     {
       img: `${Arasan}`,
-      alt:"Arasan",
+      alt: "Arasan",
       position: "Managing Partner",
       location: "@Arasan Supermarket",
       website: "www.thekingsgroup.in",
     },
     {
       img: `${Halwa_King}`,
-      alt:"King’s Retail",
+      alt: "King’s Retail",
       position: "Managing Partner",
       location: "@King’s Retail Ventures",
       website: "www.halwaking.com",
     },
     {
       img: `${Kings_Chic}`,
-      alt:"King’s chic",
+      alt: "King’s chic",
       position: "Managing Partner",
       location: "@King’s chic",
       website: "www.kingschic.in",
     },
     {
       img: `${ABCD}`,
-      alt:"Arasan",
+      alt: "Arasan",
       position: "Managing Partner",
       location: "@Arasan building & construction development",
       website: "www.arasanconstruction.com",
     },
-   
+
   ];
-  const  previousPositions:Array<{ img: string; alt: string, position: string; location: string; Duration: string }> = [
+  const previousPositions: Array<{ img: string; alt: string, position: string; location: string; Duration: string }> = [
     {
       img: `${Arasan}`,
-      alt:"arasan",
+      alt: "arasan",
       position: "Managing Director",
       location: "@Arasan bakery & Restaurant Co.,(P) Ltd ",
       Duration: "Since 1997 - 2013",
     },
     {
       img: `${Arasan}`,
-      alt:"arasan",
+      alt: "arasan",
       position: "Managing Director",
       location: "@Arasan beedi company Private Limited ",
       Duration: "Since 1997 - 2012",
     },
     {
       img: `${Arasan}`,
-      alt:"arasan",
+      alt: "arasan",
       position: "Director",
       location: "@Arasan sweets & milk food (P) Ltd",
       Duration: "Since 2005 - 2013",
     },
     {
       img: `${Arasan}`,
-      alt:"arasan",
+      alt: "arasan",
       position: "Director",
       location: "@Arasan dipartmental store (P) Ltd",
       Duration: "Since 2009 - 2013",
     },
     {
       img: `${Arasan}`,
-      alt:"arasan",
+      alt: "arasan",
       position: "Director",
       location: "@Arasan Fashion  Design  (P) Ltd",
       Duration: "Since 2005 - 2012",
     },
     {
-      img:`${Arasan}`,
-      alt:"arasan",
+      img: `${Arasan}`,
+      alt: "arasan",
       position: "Managing Partner",
       location: "@Arasan Tailors",
       Duration: "Since 1997 - 2011",
@@ -231,7 +231,7 @@ function Member() {
       if (member.data.member.key === "leader") {
         setIsLeader(true);
       }
-       setDataLoaded(true);
+      setDataLoaded(true);
     }
 
     if (dataLoaded && userData?.pictures) {
@@ -278,10 +278,10 @@ function Member() {
                 navigate({
                   to: "/bnicomorin",
                   search: {
-                    tab: isLeader?"leaders":"members",
+                    tab: isLeader ? "leaders" : "members",
                   },
-              }
-                
+                }
+
                 )
               }
             />
@@ -345,13 +345,13 @@ function Member() {
         </div>
 
         {/* our services */}
-       <div className="mt-3 mx-4">
-        {
-          isLeader?<></>: <h1 className="font-semibold text-[#222222BD] text-sm">
-          Our Services
-        </h1>
-        }
-         
+        <div className="mt-3 mx-4">
+          {
+            isLeader ? <></> : <h1 className="font-semibold text-[#222222BD] text-sm">
+              Our Services
+            </h1>
+          }
+
 
           <div className="flex flex-wrap mt-4 capitalize gap-2">
             {userData?.services?.map((service: string, index: number) => (
@@ -365,8 +365,8 @@ function Member() {
             ))}
           </div>
         </div>
-        
-        
+
+
 
         {/* about */}
         <div className="mt-6 mx-4">
@@ -375,9 +375,23 @@ function Member() {
           </h1>
 
           <div className="mt-4">
-            <p className="text-[#222222BD] font-[400px] text-[13px] leading-[24px] text-justify">
-              {userData?.about}
-            </p>
+            {
+              isLeader ?
+                <p className="text-[#222222BD] font-[400px] text-[13px] leading-[24px]  flex flex-col gap-[11px] text-justify ">
+                  <span>
+                    I am Mohamed Riaz, an Executive Director, ActionCOACH Business Coach, and serial entrepreneur with over two decades of leadership experience. Throughout my career, I have successfully led multiple ventures, managing businesses across industries such as retail, hospitality, and construction.
+                  </span>
+                  <span>My roles as Executive Director at BNI Tirunelveli, Nagercoil, and Tuticorin, along with my strategic leadership at King's Retail Ventures and Arasan Supermarket, highlight my commitment to fostering business growth and community engagement.</span>
+                  <span>
+                    My passion for business coaching has led me to help entrepreneurs maximize their potential through actionable strategies that drive growth and productivity.
+                  </span>
+                </p>
+                :
+                <p className="text-[#222222BD] font-[400px] text-[13px] leading-[24px] text-justify">
+                  {userData?.about}
+                </p>
+            }
+
           </div>
         </div>
         {
@@ -404,111 +418,111 @@ function Member() {
               </div>
 
               <div className="mt-4">
-                  <div className="grid grid-cols-3 gap-[12px]">
-                    <div className="flex gap-[9px] items-center">
-                      <img className="w-[18px] h-[18px]" src={leadership} alt="leadership" />
-                      <p className="text-[#373737BD] text-[13px]">Leadership</p>
-                    </div>
-                    <div className="flex gap-[9px] items-center">
-                      <img className="w-[18px] h-[18px]" src={hug} alt="compassion" />
-                      <p className="text-[#373737BD] text-[13px]">Compassion</p>
-                    </div>
-                    <div className="flex gap-[9px] items-center">
-                      <img className="w-[18px] h-[18px] " src={happiness} alt="Optimism" />
-                      <p className="text-[#373737BD] text-[13px]">Optimism</p>
-                    </div>
-                    <div className="flex gap-[9px] items-center">
-                      <img className="w-[18px] h-[18px]" src={heart} alt="honesty" />
-                      <p className="text-[#373737BD] text-[13px]">Honesty</p>
-                    </div>
-                    <div className="flex gap-[9px] items-center">
-                      <img className="w-[18px] h-[18px]" src={faith} alt="Faith" />
-                      <p className="text-[#373737BD] text-[13px]">Faith</p>
-                    </div>
+                <div className="grid grid-cols-3 gap-[12px]">
+                  <div className="flex gap-[9px] items-center">
+                    <img className="w-[18px] h-[18px]" src={leadership} alt="leadership" />
+                    <p className="text-[#373737BD] text-[13px]">Leadership</p>
+                  </div>
+                  <div className="flex gap-[9px] items-center">
+                    <img className="w-[18px] h-[18px]" src={hug} alt="compassion" />
+                    <p className="text-[#373737BD] text-[13px]">Compassion</p>
+                  </div>
+                  <div className="flex gap-[9px] items-center">
+                    <img className="w-[18px] h-[18px] " src={happiness} alt="Optimism" />
+                    <p className="text-[#373737BD] text-[13px]">Optimism</p>
+                  </div>
+                  <div className="flex gap-[9px] items-center">
+                    <img className="w-[18px] h-[18px]" src={heart} alt="honesty" />
+                    <p className="text-[#373737BD] text-[13px]">Honesty</p>
+                  </div>
+                  <div className="flex gap-[9px] items-center">
+                    <img className="w-[18px] h-[18px]" src={faith} alt="Faith" />
+                    <p className="text-[#373737BD] text-[13px]">Faith</p>
                   </div>
                 </div>
-                 {/* vision and mission */}
-<div className="flex -mx-[3px] flex-col gap-[14px]  mt-[22px]">
-  <div className="border rounded-[9px] p-[12px]">
-<div className="flex gap-[8px]">
-<img src={Vison} alt="" className="h-[20px] w-[20px]" />
-<p className="text-[14px]">Vison</p>
-</div>
-<p className="text-[13px] mt-[11px] text-[#222222BD]">
-To help 1,00,000 young entrepreneurs create a process, be productive & build wealth by 2030
-</p>
-  </div>
-  <div className="border rounded-[9px] p-[12px]">
-<div className="flex gap-[8px]">
-<img src={Mission} alt="" className="h-[20px] w-[24px]" />
-<p className="text-[14px]">Mission</p>
-</div>
-<p className="text-[13px] mt-[11px] text-[#222222BD]">
-To educate, encourage & empower every young startup entrepreneur in india to achieve more.</p>
-  </div>
-</div>
-                {/* current position */}
+              </div>
+              {/* vision and mission */}
+              <div className="flex -mx-[3px] flex-col gap-[14px]  mt-[22px]">
+                <div className="border rounded-[9px] p-[12px]">
+                  <div className="flex gap-[8px]">
+                    <img src={Vison} alt="" className="h-[20px] w-[20px]" />
+                    <p className="text-[14px]">Vison</p>
+                  </div>
+                  <p className="text-[13px] mt-[11px] text-[#222222BD]">
+                    To help 1,00,000 young entrepreneurs create a process, be productive & build wealth by 2030
+                  </p>
+                </div>
+                <div className="border rounded-[9px] p-[12px]">
+                  <div className="flex gap-[8px]">
+                    <img src={Mission} alt="" className="h-[20px] w-[24px]" />
+                    <p className="text-[14px]">Mission</p>
+                  </div>
+                  <p className="text-[13px] mt-[11px] text-[#222222BD]">
+                    To educate, encourage & empower every young startup entrepreneur in india to achieve more.</p>
+                </div>
+              </div>
+              {/* current position */}
               <div className="mt-[22px]">
-               <p className="text-[#222222BD] ">Current Positions</p>
-               <div className="mt-6  border rounded-xl px-1 shadow">
-               {currentPositions.map((member, index) => (
-        <div key={index} className=" border-b py-4 gap-[10px] flex">
-          <div className="">
-          <img
-            src={member.img}
-            alt={member.alt}
-            className="w-[40px] ml-[11px]  text-xs  h-[40px]   object-cover rounded-md "
-          />
-          </div>
-          <div className="">
-          <h2 className="text-[14px] text-[#222222ED] ">{member.position}</h2>
+                <p className="text-[#222222BD] ">Current Positions</p>
+                <div className="mt-6  border rounded-xl px-1 shadow">
+                  {currentPositions.map((member, index) => (
+                    <div key={index} className=" border-b py-4 gap-[10px] flex">
+                      <div className="">
+                        <img
+                          src={member.img}
+                          alt={member.alt}
+                          className="w-[40px] ml-[11px]  text-xs  h-[40px]   object-cover rounded-md "
+                        />
+                      </div>
+                      <div className="">
+                        <h2 className="text-[14px] text-[#222222ED] ">{member.position}</h2>
 
-          <p className="text-blue-500 text-[13px]">{member.location}</p>
-          <p className="text-[12px] text-[#222222BD]">
-            {member.website}
-          </p>
-          </div>
-          
-         
-        </div>
-      ))}
-               </div>
-               <div>
+                        <p className="text-blue-500 text-[13px]">{member.location}</p>
+                        <p className="text-[12px] text-[#222222BD]">
+                          {member.website}
+                        </p>
+                      </div>
 
-               </div>
+
+                    </div>
+                  ))}
+                </div>
+                <div>
+
+                </div>
               </div>
 
-{/* previous position */}
-<div className="mt-4">
-      <div className="flex justify-between items-center">
-        <p className="text-[#222222BD] ">Previous Positions</p>
-        <p
-          className="text-[#0064E1] cursor-pointer"
-          onClick={() => setShowAll(!showAll)} 
-        >
-          {showAll ? "View Less" : "View All"}
-        </p>
-      </div>
+              {/* previous position */}
+              <div className="mt-4">
+                <div className="flex justify-between items-center">
+                  <p className="text-[#222222BD] ">Previous Positions</p>
+                  <p
+                    className="text-[#0064E1] cursor-pointer"
+                    onClick={() => setShowAll(!showAll)}
+                  >
+                    {showAll ? "View Less" : "View All"}
+                  </p>
+                </div>
 
-      <div className="mt-6 border rounded-xl px-1 shadow">
-        {displayedPositions.map((member, index) => (
-          <div key={index} className="border-b py-4 flex">
-            <div className="">
-              <img
-                src={member.img}
-                alt={member.alt}
-                className="text-xs ml-[11px] h-[40px] w-[40px] object-cover rounded-md mb-4"
-              />
-            </div>
-            <div className="ml-4">
-              <h2 className="text-[14px] text-[#222222ED]">{member.position}</h2>
-              <p className="text-blue-500 text-[13px]">{member.location}</p>
-              <p className="text-[12px] text-[#222222BD]">{member.Duration}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
+                <div className="mt-6 border rounded-xl px-1 shadow">
+                  {displayedPositions.map((member, index) => (
+                    <div key={index} className="border-b py-4 flex">
+                      <div className="">
+                        <img
+                          src={member.img}
+                          alt={member.alt}
+                          className="text-xs ml-[11px] h-[40px] w-[40px] object-cover rounded-md mb-4"
+                        />
+                      </div>
+                      <div className="ml-4">
+                        <h2 className="text-[14px] text-[#222222ED]">{member.position}</h2>
+                        <p className="text-blue-500 text-[13px]">{member.location}</p>
+                        <p className="text-[12px] text-[#222222BD]">{member.Duration}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
 
             </div>
           </> :
