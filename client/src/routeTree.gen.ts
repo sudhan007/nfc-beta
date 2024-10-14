@@ -20,6 +20,7 @@ import { Route as DashboardDashboardListImport } from './routes/dashboard/_dashb
 // Create Virtual Routes
 
 const DashboardImport = createFileRoute('/dashboard')()
+const PressupLazyImport = createFileRoute('/pressup')()
 const BnicomorinLazyImport = createFileRoute('/bnicomorin')()
 const IndexLazyImport = createFileRoute('/')()
 const DashboardIndexLazyImport = createFileRoute('/dashboard/')()
@@ -37,6 +38,11 @@ const DashboardRoute = DashboardImport.update({
   path: '/dashboard',
   getParentRoute: () => rootRoute,
 } as any)
+
+const PressupLazyRoute = PressupLazyImport.update({
+  path: '/pressup',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/pressup.lazy').then((d) => d.Route))
 
 const BnicomorinLazyRoute = BnicomorinLazyImport.update({
   path: '/bnicomorin',
@@ -114,6 +120,13 @@ declare module '@tanstack/react-router' {
       path: '/bnicomorin'
       fullPath: '/bnicomorin'
       preLoaderRoute: typeof BnicomorinLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/pressup': {
+      id: '/pressup'
+      path: '/pressup'
+      fullPath: '/pressup'
+      preLoaderRoute: typeof PressupLazyImport
       parentRoute: typeof rootRoute
     }
     '/dashboard': {
@@ -203,6 +216,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexLazyRoute
   '/auth': typeof AuthRoute
   '/bnicomorin': typeof BnicomorinLazyRoute
+  '/pressup': typeof PressupLazyRoute
   '/dashboard': typeof DashboardDashboardRouteWithChildren
   '/member/$id': typeof MemberIdLazyRoute
   '/dashboard/': typeof DashboardDashboardIndexLazyRoute
@@ -214,6 +228,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexLazyRoute
   '/auth': typeof AuthRoute
   '/bnicomorin': typeof BnicomorinLazyRoute
+  '/pressup': typeof PressupLazyRoute
   '/member/$id': typeof MemberIdLazyRoute
   '/dashboard': typeof DashboardDashboardIndexLazyRoute
   '/dashboard/list': typeof DashboardDashboardListRoute
@@ -225,6 +240,7 @@ export interface FileRoutesById {
   '/': typeof IndexLazyRoute
   '/auth': typeof AuthRoute
   '/bnicomorin': typeof BnicomorinLazyRoute
+  '/pressup': typeof PressupLazyRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/dashboard/_dashboard': typeof DashboardDashboardRouteWithChildren
   '/member/$id': typeof MemberIdLazyRoute
@@ -240,6 +256,7 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/bnicomorin'
+    | '/pressup'
     | '/dashboard'
     | '/member/$id'
     | '/dashboard/'
@@ -250,6 +267,7 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/bnicomorin'
+    | '/pressup'
     | '/member/$id'
     | '/dashboard'
     | '/dashboard/list'
@@ -259,6 +277,7 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/bnicomorin'
+    | '/pressup'
     | '/dashboard'
     | '/dashboard/_dashboard'
     | '/member/$id'
@@ -273,6 +292,7 @@ export interface RootRouteChildren {
   IndexLazyRoute: typeof IndexLazyRoute
   AuthRoute: typeof AuthRoute
   BnicomorinLazyRoute: typeof BnicomorinLazyRoute
+  PressupLazyRoute: typeof PressupLazyRoute
   DashboardRoute: typeof DashboardRouteWithChildren
   MemberIdLazyRoute: typeof MemberIdLazyRoute
 }
@@ -281,6 +301,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexLazyRoute: IndexLazyRoute,
   AuthRoute: AuthRoute,
   BnicomorinLazyRoute: BnicomorinLazyRoute,
+  PressupLazyRoute: PressupLazyRoute,
   DashboardRoute: DashboardRouteWithChildren,
   MemberIdLazyRoute: MemberIdLazyRoute,
 }
@@ -300,6 +321,7 @@ export const routeTree = rootRoute
         "/",
         "/auth",
         "/bnicomorin",
+        "/pressup",
         "/dashboard",
         "/member/$id"
       ]
@@ -312,6 +334,9 @@ export const routeTree = rootRoute
     },
     "/bnicomorin": {
       "filePath": "bnicomorin.lazy.tsx"
+    },
+    "/pressup": {
+      "filePath": "pressup.lazy.tsx"
     },
     "/dashboard": {
       "filePath": "dashboard",
