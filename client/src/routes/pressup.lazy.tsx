@@ -11,7 +11,7 @@ function Pressup() {
         <img
           src="/pressup.jpg"
           alt="Logo"
-          className="w-32 h-32 rounded-lg shadow-lg shadow-black/50"
+          className="w-32 h-32 rounded-lg shadow-lg shadow-black/30"
         />
       </div>
 
@@ -20,11 +20,12 @@ function Pressup() {
           href="https://m.9m.io/kug2pu7"
           target="_blank"
           rel="noopener noreferrer"
+          className="inline-block"
         >
           <img
             src="/google-play.svg"
             alt="Google Play"
-            className="w-40 h-auto cursor-pointer transition-transform transform hover:scale-105"
+            className="w-40 h-auto cursor-pointer"
           />
         </a>
 
@@ -32,11 +33,12 @@ function Pressup() {
           href="https://m.9m.io/ku7pkso"
           target="_blank"
           rel="noopener noreferrer"
+          className="inline-block"
         >
           <img
             src="/app-store.svg"
             alt="App Store"
-            className="w-40 h-auto cursor-pointer transition-transform transform hover:scale-105"
+            className="w-40 h-auto cursor-pointer"
           />
         </a>
       </div>
