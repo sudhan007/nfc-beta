@@ -1,4 +1,4 @@
-import cors from "@elysiajs/cors";
+// import cors from "@elysiajs/cors";
 import { swagger } from "@elysiajs/swagger";
 import { Elysia } from "elysia";
 import { Logestic } from "logestic";
@@ -11,7 +11,7 @@ const app = new Elysia({
 });
 
 app.use(Logestic.preset("commontz"));
-app.use(cors());
+// app.use(cors());
 
 app.use(
   swagger({
