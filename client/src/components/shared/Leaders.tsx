@@ -129,25 +129,25 @@ console.log(data)
       <div className="grid grid-cols-2 gap-4 p-4">
         <div className="">
           <LeaderCard
-            name={"Dr. Nirmal Nellaiappan"}
+            name={"Mr. Jude Festus"}
             position={"President"}
-            image={"/img/members/leadership/leader2.png"}
+            image={"/img/members/leadership/jude.png"}
           />
         </div>
 
         <div className="">
           <LeaderCard
-            name={"Mr. Yosuwa Raja"}
+            name={"Mr. Vimal Davidson"}
             position={"Vice President"}
-            image={"/img/members/leadership/leader1.png"}
+            image={"/img/members/leadership/vimal.png"}
           />
         </div>
 
         <div className="">
           <LeaderCard
-            name={"Mr. Siva Anand Jeyakumar"}
+            name={"Mrs. Arockia Jesi"}
             position={"Secretary/Treasurer"}
-            image={"/img/members/leadership/leader3.png"}
+            image={"/img/members/leadership/arockiyajesi.png"}
           />
         </div>
       </div>
@@ -159,7 +159,7 @@ console.log(data)
       <div className="grid grid-cols-2 gap-4 p-4">
         <div className="">
           <LeaderCard
-            name={"Mr. Christurajan"}
+            name={"Mr. Palayen Christurajan"}
             position={"Chapter Growth Co-ordinator"}
             image={"/img/members/membership/1.png"}
           />
@@ -167,33 +167,33 @@ console.log(data)
 
         <div className="">
           <LeaderCard
-            name={"Mr. Rakesh Kumar"}
+            name={"Mr. Satheesh Kumar"}
             position={"Mentor Co-ordinator"}
-            image={"/img/members/membership/2.png"}
+            image={"/img/members/membership/.png"}
           />
         </div>
 
         <div className="">
           <LeaderCard
-            name={"Mr. Benny"}
+            name={"Mr. Vijay Ganesh"}
             position={"Attendance Co-ordinator"}
-            image={"/img/members/membership/3.png"}
+            image={"/img/members/membership/vijay.png"}
           />
         </div>
 
         <div className="">
           <LeaderCard
-            name={"Mrs. Sathya Chellam"}
+            name={"Dr. Gracewin Jacob"}
             position={"Referral Value Co-ordinator"}
-            image={"/img/members/membership/4.png"}
+            image={"/img/members/membership/gracewinjacob.png"}
           />
         </div>
 
         <div className="">
           <LeaderCard
-            name={"Dr. Gracewin"}
+            name={"Mr. Raja Ram"}
             position={"Application Review Co-ordinator"}
-            image={"/img/members/membership/5.png"}
+            image={"/img/members/membership/rajaram.png"}
           />
         </div>
       </div>
@@ -203,57 +203,57 @@ console.log(data)
       <div className="grid grid-cols-2 gap-4 p-4">
         <div className="">
           <LeaderCard
-            name={"Mrs. Arokiya Jessi"}
+            name={"Mrs. Sathya Chellam"}
             position={"Lead Visitor Host"}
-            image={"/img/members/lvh/1.png"}
+            image={"/img/members/lvh/sathya.png"}
           />
         </div>
 
         <div className="">
           <LeaderCard
-            name={"Mr. Pandiyan KPM"}
+            name={"Mr. Jayasuthan P"}
             position={"BIT"}
-            image={"/img/members/lvh/2.png"}
+            image={"/img/members/lvh/.png"}
           />
         </div>
 
         <div className="">
           <LeaderCard
-            name={"Mr. Raja Kumaresan"}
+            name={"Mrs. Geerthana"}
             position={"BIT"}
-            image={"/img/members/lvh/7.png"}
+            image={"/img/members/lvh/.png"}
           />
         </div>
 
         <div className="">
           <LeaderCard
-            name={"Mr. Thanikachalapandian"}
+            name={"Mrs. Felcie Ponmathi"}
             position={"FIT"}
-            image={"/img/members/lvh/3.png"}
+            image={"/img/members/lvh/felcie .png"}
           />
         </div>
 
         <div className="">
           <LeaderCard
-            name={"Dr. Fino Jetly"}
+            name={"Mr. Benny S"}
             position={"FIT"}
-            image={"/img/members/lvh/4.png"}
+            image={"/img/members/lvh/benny.png"}
           />
         </div>
 
         <div className="">
           <LeaderCard
-            name={"Mrs. Jijiya"}
+            name={"Mr. Thanikasala Pandian"}
             position={"LIT"}
-            image={"/img/members/lvh/5.png"}
+            image={"/img/members/lvh/pandian.png"}
           />
         </div>
 
         <div className="">
           <LeaderCard
-            name={"Dr. Sunjanaa Dhepa"}
+            name={"Mr. Sahaya Antony Suresh"}
             position={"LIT"}
-            image={"/img/members/lvh/6.png"}
+            image={"/img/members/lvh/suresh.png"}
           />
         </div>
       </div>
@@ -265,18 +265,18 @@ console.log(data)
       <div className="grid grid-cols-2 gap-4 p-4">
         <div className="">
           <LeaderCard
-            name={"Mr. Satheesh Kumar"}
+            name={"Mr. Jasim M"}
             position={"Education Coordinator"}
-            image={"/img/members/coord/1.png"}
+            image={"/img/members/coord/jasim.png"}
             class="w-[172px] h-[195.04px] object-cover"
           />
         </div>
 
         <div className="">
           <LeaderCard
-            name={"Mr.Rajaram Sri"}
+            name={"Mr. James"}
             position={"Feature Presentation Coordinator"}
-            image={"/img/members/coord/2.png"}
+            image={"/img/members/coord/james.png"}
           />
         </div>
 
@@ -290,41 +290,48 @@ console.log(data)
 
         <div className="">
           <LeaderCard
-            name={"Mr. Jude Festus"}
+            name={"Mr. Yosuwa Raja"}
             position={"Connect Coordinator"}
-            image={"/img/members/coord/4.png"}
+            image={"/img/members/coord/yosuwa.png"}
           />
         </div>
 
         <div className="">
           <LeaderCard
-            name={"Mr. Jebin Stewart"}
+            name={"Dr. Fino Jetly"}
             position={"Go Green Coordinator"}
-            image={"/img/members/coord/5.png"}
+            image={"/img/members/coord/jetly.png"}
           />
         </div>
 
         <div className="">
           <LeaderCard
-            name={"Mr. James"}
+            name={"Mr. Pandian"}
             position={"Power Team Coordinator"}
-            image={"/img/members/coord/6.png"}
+            image={"/img/members/coord/pandian-bp.png"}
           />
         </div>
 
         <div className="">
           <LeaderCard
-            name={"Mr. Vimal Davidson"}
+            name={"Mrs. Jijiya"}
             position={"1-2-1 Coordinator"}
-            image={"/img/members/coord/7.png"}
+            image={"/img/members/coord/JIJIYA.png"}
           />
         </div>
 
         <div className="">
           <LeaderCard
-            name={"Mr. Siva Kumar"}
+            name={"Mr. Maria Britto"}
             position={"Time Keeper"}
-            image={"/img/members/coord/8.png"}
+            image={"/img/members/coord/britto.png"}
+          />
+        </div>
+        <div className="">
+          <LeaderCard
+            name={"Mr. Suresh Ramachandran"}
+            position={"Business Coordinator"}
+            image={"/img/members/coord/ramachandran.png"}
           />
         </div>
       </div>
