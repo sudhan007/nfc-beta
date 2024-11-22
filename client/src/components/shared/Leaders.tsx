@@ -169,7 +169,7 @@ console.log(data)
           <LeaderCard
             name={"Mr. Satheesh Kumar"}
             position={"Mentor Co-ordinator"}
-            image={"/img/members/membership/.png"}
+            image={"/img/members/membership/white.png"}
           />
         </div>
 
@@ -213,7 +213,7 @@ console.log(data)
           <LeaderCard
             name={"Mr. Jayasuthan P"}
             position={"BIT"}
-            image={"/img/members/lvh/.png"}
+            image={"/img/members/lvh/white.png"}
           />
         </div>
 
@@ -221,7 +221,7 @@ console.log(data)
           <LeaderCard
             name={"Mrs. Geerthana"}
             position={"BIT"}
-            image={"/img/members/lvh/.png"}
+            image={"/img/members/lvh/white.png"}
           />
         </div>
 
