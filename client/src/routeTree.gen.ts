@@ -21,6 +21,7 @@ import { Route as DashboardDashboardListImport } from './routes/dashboard/_dashb
 
 const DashboardImport = createFileRoute('/dashboard')()
 const PressupLazyImport = createFileRoute('/pressup')()
+const KingschicLazyImport = createFileRoute('/kingschic')()
 const BnicomorinLazyImport = createFileRoute('/bnicomorin')()
 const IndexLazyImport = createFileRoute('/')()
 const DashboardIndexLazyImport = createFileRoute('/dashboard/')()
@@ -43,6 +44,11 @@ const PressupLazyRoute = PressupLazyImport.update({
   path: '/pressup',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/pressup.lazy').then((d) => d.Route))
+
+const KingschicLazyRoute = KingschicLazyImport.update({
+  path: '/kingschic',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/kingschic.lazy').then((d) => d.Route))
 
 const BnicomorinLazyRoute = BnicomorinLazyImport.update({
   path: '/bnicomorin',
@@ -120,6 +126,13 @@ declare module '@tanstack/react-router' {
       path: '/bnicomorin'
       fullPath: '/bnicomorin'
       preLoaderRoute: typeof BnicomorinLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/kingschic': {
+      id: '/kingschic'
+      path: '/kingschic'
+      fullPath: '/kingschic'
+      preLoaderRoute: typeof KingschicLazyImport
       parentRoute: typeof rootRoute
     }
     '/pressup': {
@@ -216,6 +229,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexLazyRoute
   '/auth': typeof AuthRoute
   '/bnicomorin': typeof BnicomorinLazyRoute
+  '/kingschic': typeof KingschicLazyRoute
   '/pressup': typeof PressupLazyRoute
   '/dashboard': typeof DashboardDashboardRouteWithChildren
   '/member/$id': typeof MemberIdLazyRoute
@@ -228,6 +242,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexLazyRoute
   '/auth': typeof AuthRoute
   '/bnicomorin': typeof BnicomorinLazyRoute
+  '/kingschic': typeof KingschicLazyRoute
   '/pressup': typeof PressupLazyRoute
   '/member/$id': typeof MemberIdLazyRoute
   '/dashboard': typeof DashboardDashboardIndexLazyRoute
@@ -240,6 +255,7 @@ export interface FileRoutesById {
   '/': typeof IndexLazyRoute
   '/auth': typeof AuthRoute
   '/bnicomorin': typeof BnicomorinLazyRoute
+  '/kingschic': typeof KingschicLazyRoute
   '/pressup': typeof PressupLazyRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/dashboard/_dashboard': typeof DashboardDashboardRouteWithChildren
@@ -256,6 +272,7 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/bnicomorin'
+    | '/kingschic'
     | '/pressup'
     | '/dashboard'
     | '/member/$id'
@@ -267,6 +284,7 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/bnicomorin'
+    | '/kingschic'
     | '/pressup'
     | '/member/$id'
     | '/dashboard'
@@ -277,6 +295,7 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/bnicomorin'
+    | '/kingschic'
     | '/pressup'
     | '/dashboard'
     | '/dashboard/_dashboard'
@@ -292,6 +311,7 @@ export interface RootRouteChildren {
   IndexLazyRoute: typeof IndexLazyRoute
   AuthRoute: typeof AuthRoute
   BnicomorinLazyRoute: typeof BnicomorinLazyRoute
+  KingschicLazyRoute: typeof KingschicLazyRoute
   PressupLazyRoute: typeof PressupLazyRoute
   DashboardRoute: typeof DashboardRouteWithChildren
   MemberIdLazyRoute: typeof MemberIdLazyRoute
@@ -301,6 +321,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexLazyRoute: IndexLazyRoute,
   AuthRoute: AuthRoute,
   BnicomorinLazyRoute: BnicomorinLazyRoute,
+  KingschicLazyRoute: KingschicLazyRoute,
   PressupLazyRoute: PressupLazyRoute,
   DashboardRoute: DashboardRouteWithChildren,
   MemberIdLazyRoute: MemberIdLazyRoute,
@@ -321,6 +342,7 @@ export const routeTree = rootRoute
         "/",
         "/auth",
         "/bnicomorin",
+        "/kingschic",
         "/pressup",
         "/dashboard",
         "/member/$id"
@@ -334,6 +356,9 @@ export const routeTree = rootRoute
     },
     "/bnicomorin": {
       "filePath": "bnicomorin.lazy.tsx"
+    },
+    "/kingschic": {
+      "filePath": "kingschic.lazy.tsx"
     },
     "/pressup": {
       "filePath": "pressup.lazy.tsx"
